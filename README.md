@@ -23,7 +23,7 @@ Firstly, you will need Python to run this project. You can download Python from 
 Next, you'll need to install the necessary Python libraries using pip, which is Python's package manager. You can install the libraries using the following command:
 
 ```
-$ pip install selenium webdriver_manager pandas tkinter matplotlib tqdm
+pip install selenium webdriver_manager pandas matplotlib tqdm
 ```
 
 
