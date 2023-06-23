@@ -201,7 +201,8 @@ ax.get_yaxis().set_major_formatter(plt.FuncFormatter(lambda x, loc: human_format
 # Add the actual values at the tips of the bars
 for bar in bars:
     yval = bar.get_height()
-    plt.text(bar.get_x() + bar.get_width()/2, yval, human_format(int(yval)), ha='center', va='bottom')
+    ax.text(bar.get_x() + bar.get_width()/2, yval, f'{int(yval):,}', ha='center', va='bottom')
+
 
 plt.tight_layout()  # Adjust the layout to fit the labels
 
@@ -234,7 +235,8 @@ ax.get_yaxis().set_major_formatter(plt.FuncFormatter(lambda x, loc: human_format
 # Add the actual values at the tips of the bars
 for bar in bars:
     yval = bar.get_height()
-    ax.text(bar.get_x() + bar.get_width()/2, yval, human_format(int(yval)), ha='center', va='bottom')
+    ax.text(bar.get_x() + bar.get_width()/2, yval, f'{int(yval):,}', ha='center', va='bottom')
+
 
 fig.tight_layout()  # Adjust the layout to fit the labels
 
