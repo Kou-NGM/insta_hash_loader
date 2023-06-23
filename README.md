@@ -1,5 +1,9 @@
 # Python Selenium Web Driver Script
 
+
+
+
+
 ## プロジェクトの概要（Project Overview）
 このプロジェクトでは、Instagramのハッシュタグを使って投稿数を取得し、それらの結果をCSVファイルに保存し、さらにそれらの結果を可視化するためのバーグラフを作成します。プロジェクトのソースコードはPythonで書かれています。
 
