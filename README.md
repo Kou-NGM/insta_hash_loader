@@ -43,8 +43,8 @@ python gif_GUI_Insta_hash.py
 ```
 
 ## 使用方法
-ターミナルを開き、リポジトリのディレクトリに移動します。次に、`python3 gif_GUI_Insta_hash.py` を実行してスクリプトを起動します。スクリプトは自動的にウェブブラウザを開き、指定されたWebページ（この例では https://python.org）を表示します。
-
+ターミナルを開き、リポジトリのディレクトリに移動します。次に、`python3 gif_GUI_Insta_hash.py` を実行してスクリプトを起動します。あらかじめ調べておきたい単語をcsv形式で羅列しておくとすぐ読み込んで使うことができます。スプレッドシートに入力する際は縦に調べたい単語を並べておいてください。
+Open a terminal and navigate to the repository directory. Next, run `python3 gif_GUI_Insta_hash.py` to start the script. If you list the words you want to look up in advance in csv format, you can load them and use them right away. When entering the words into the spreadsheet, please line up the words vertically.
 
 
 ### Pythonのインストール
