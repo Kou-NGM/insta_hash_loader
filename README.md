@@ -1,4 +1,4 @@
-# Python Selenium Web Driver Script
+# Python Instagram Hashtag scraper
 
 
 
@@ -43,7 +43,7 @@ python gif_GUI_Insta_hash.py
 ```
 
 ## 使用方法
-ターミナルを開き、リポジトリのディレクトリに移動します。次に、`python3 example.py` を実行してスクリプトを起動します。スクリプトは自動的にウェブブラウザを開き、指定されたWebページ（この例では https://python.org）を表示します。
+ターミナルを開き、リポジトリのディレクトリに移動します。次に、`python3 gif_GUI_Insta_hash.py` を実行してスクリプトを起動します。スクリプトは自動的にウェブブラウザを開き、指定されたWebページ（この例では https://python.org）を表示します。
 
 
 
@@ -61,14 +61,6 @@ python gif_GUI_Insta_hash.py
 1. Linuxの配布版によっては、デフォルトのパッケージマネージャ（Yum、APTなど）を使用してPythonをインストールできます。
 2. Homebrewを使用してPythonをインストールすることも可能です。これは、OSが出荷時に提供するバージョンの代わりにPythonの最新バージョンを得ることができ、システムへのルートアクセスが不要であるため、特に有用です。 (参考: [source](https://python.land/installing-python/))
 
-### Seleniumのインストール
-
-1. Pythonがインストールされたら、次にSeleniumをインストールします。これは、Pythonのパッケージマネージャであるpipを使用して行います。以下のコマンドを実行します：`pip install -U selenium`。 (参考: [source](https://pythonspot.com/selenium-download/))
-2. 次に、Webドライバをインストールします。使用するブラウザに応じて適切なドライバを選択します（ChromeDriver、FirefoxDriver、EdgeDriverなど）。 (参考: [source](https://pythonspot.com/selenium-download/))
-
-### PythonとSeleniumを使用したプログラミング
-
-インストールが完了したら、PythonとSeleniumを使用してブラウザを操作するプログラムを書くことができます。以下は、Chrome、Firefox、およびEdgeで使用するための基本的なSeleniumコードの例です。 (参考: [source](https://
 
 
 
