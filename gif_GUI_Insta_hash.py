@@ -21,6 +21,7 @@ import threading
 import matplotlib
 import sys
 from matplotlib import font_manager
+import matplotlib.backends.backend_tkagg as tkagg
 
 fonts = [f.name for f in font_manager.fontManager.ttflist]
 available_fonts = ['Meiryo', 'MS Gothic', 'MS Mincho', 'Takao']
@@ -208,13 +209,50 @@ plt.tight_layout()  # Adjust the layout to fit the labels
 chart_path = os.path.join(output_directory, 'bar_chart.png')
 plt.savefig(chart_path)
 
-def plot_show():
-    plt.show()  # Display the bar chart
-
-plot_show()  # Call function directly in the main thread
 
 
+
+
+
+
+# 以下のコードは、すべての処理が終了した後にウィンドウが閉じられるようにするためのものです。
+def close_window():
+    root.destroy()
+
+# matplotlibのFigureとAxesを作成します。
+fig, ax = plt.subplots(figsize=(10, 5))
+
+bars = ax.bar(df_results['word'], df_results['posts_count'])
+ax.set_xlabel('Word')
+ax.set_ylabel('Posts Count')
+ax.set_title('Number of posts count for each word')
+plt.xticks(rotation=45)  # Rotate the x-axis labels for better readability
+
+# Format y-axis
+ax.get_yaxis().set_major_formatter(plt.FuncFormatter(lambda x, loc: human_format(x)))
+
+# Add the actual values at the tips of the bars
+for bar in bars:
+    yval = bar.get_height()
+    ax.text(bar.get_x() + bar.get_width()/2, yval, human_format(int(yval)), ha='center', va='bottom')
+
+fig.tight_layout()  # Adjust the layout to fit the labels
+
+# Save the bar chart as a PNG file
+chart_path = os.path.join(output_directory, 'bar_chart.png')
+fig.savefig(chart_path)
+
+# tkinterで表示するためのキャンバスを作成し、そのキャンバスにグラフを描画します。
+canvas = tkagg.FigureCanvasTkAgg(fig, master=root)
+canvas.draw()
+canvas.get_tk_widget().pack(side=tk.TOP, fill=tk.BOTH, expand=1)
+
+# ウィンドウが閉じられるときに実行されるコマンドを設定します。
+root.protocol("WM_DELETE_WINDOW", close_window)
+
+# 終了メッセージを表示します。
 messagebox.showinfo("終了", "作業が完了しました。画面を閉じてください。")
 
 root.mainloop()
+
 
