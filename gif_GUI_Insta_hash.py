@@ -210,7 +210,9 @@ plt.savefig(chart_path)
 
 plt.show()  # Display the bar chart
 
-# Tkinterウィンドウを完全に破棄する
-root.quit()
-root.destroy()
+# メッセージを表示する
+messagebox.showinfo("終了", "作業が完了しました。画面を閉じてください。")
+
+# Tkinterウィンドウを開いたままにする
+root.mainloop()
 
