@@ -208,11 +208,13 @@ plt.tight_layout()  # Adjust the layout to fit the labels
 chart_path = os.path.join(output_directory, 'bar_chart.png')
 plt.savefig(chart_path)
 
-plt.show()  # Display the bar chart
+def plot_show():
+    plt.show()  # Display the bar chart
 
-# メッセージを表示する
+t = threading.Thread(target=plot_show)
+t.start()
+
 messagebox.showinfo("終了", "作業が完了しました。画面を閉じてください。")
 
-# Tkinterウィンドウを開いたままにする
 root.mainloop()
 
