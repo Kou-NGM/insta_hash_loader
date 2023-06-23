@@ -16,6 +16,11 @@ This project uses Instagram hashtags to retrieve post counts, saves these result
 ## 環境設定・インストール（Setting Up Your Environment）
 まず最初に、このプロジェクトを実行するためにはPythonが必要です。Pythonは公式ウェブサイトからダウンロード可能です。このプロジェクトはPython 3.7以上で動作します。
 
+ファイルを解凍後はコマンドプロンプト(Windows)やターミナル(Mac)を開き`cd`コマンドで解凍したファイルのパスに移動します。
+```
+cd /*解答したファイルのパス*/
+```
+
 また、次にPythonのパッケージマネージャであるpipを使用して、必要なPythonライブラリをインストールする必要があります。以下のコマンドを使用してライブラリをインストールできます。
 
 Firstly, you will need Python to run this project. You can download Python from the official website. This project works with Python 3.7 and above.
