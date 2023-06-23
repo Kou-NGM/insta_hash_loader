@@ -1,3 +1,4 @@
+import selenium
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.by import By
@@ -55,7 +56,19 @@ def human_format(num):
 options = webdriver.ChromeOptions()
 options.add_argument('--headless')
 options.add_argument('--lang=en')
-driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options)
+
+
+# seleniumのバージョンをチェック
+selenium_version = tuple(int(num) for num in selenium.__version__.split('.')[:2])
+
+# seleniumのバージョンに応じた初期化方法を選択
+if selenium_version >= (4, 0):
+    webdriver_service = Service(ChromeDriverManager().install())
+    driver = webdriver.Chrome(service=webdriver_service, options=options)
+else:
+    driver = webdriver.Chrome(ChromeDriverManager().install(), options=options)
+
+
 
 base_url = 'https://www.instagram.com/explore/tags/'
 
