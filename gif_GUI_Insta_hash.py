@@ -211,8 +211,8 @@ plt.savefig(chart_path)
 def plot_show():
     plt.show()  # Display the bar chart
 
-t = threading.Thread(target=plot_show)
-t.start()
+plot_show()  # Call function directly in the main thread
+
 
 messagebox.showinfo("終了", "作業が完了しました。画面を閉じてください。")
 
