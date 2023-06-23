@@ -21,7 +21,7 @@ This project uses Instagram hashtags to retrieve post counts, saves these result
 cd /*解答したファイルのパス*/
 ```
 
-また、次にPythonのパッケージマネージャであるpipを使用して、必要なPythonライブラリをインストールする必要があります。以下のコマンドを使用してライブラリをインストールできます。
+次にPythonのパッケージマネージャであるpipを使用して、必要なPythonライブラリをインストールする必要があります。以下のコマンドを使用してライブラリをインストールできます。
 
 Firstly, you will need Python to run this project. You can download Python from the official website. This project works with Python 3.7 and above.
 
