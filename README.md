@@ -34,12 +34,12 @@ $ pip install selenium webdriver_manager pandas tkinter matplotlib tqdm
 
 1. このリポジトリをクローンまたはダウンロードします。
 2. ターミナルを開き、リポジトリのディレクトリに移動します。
-3. `python3 example.py` を実行して、スクリプトを起動します。
+3. `gif_GUI_Insta_hash.py` を実行して、スクリプトを起動します。
 
 You can run the program from the command line as follows:
 
 ```
-python your_script.py
+python gif_GUI_Insta_hash.py
 ```
 
 ## 使用方法
