@@ -1,4 +1,4 @@
-# Python Instagram Hashtag scraper
+# Python Instagram Hashtag Loader
 
 
 
