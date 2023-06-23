@@ -158,10 +158,12 @@ for i, word in enumerate(words):
 
     time.sleep(random.randint(2, 5))
 
-# (略) 以前のコードは省略します。
+
 
 stop_animation()
 
+# WebDriverのセッションを終了する前に、少し待つ
+time.sleep(2)
 driver.quit()
 
 df = pd.DataFrame(results, columns=['word', 'posts_count'])
@@ -208,5 +210,7 @@ plt.savefig(chart_path)
 
 plt.show()  # Display the bar chart
 
+# Tkinterウィンドウを完全に破棄する
 root.quit()
+root.destroy()
 
