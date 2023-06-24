@@ -74,7 +74,7 @@ else:
 base_url = 'https://www.instagram.com/explore/tags/'
 
 root = tk.Tk()
-root.title("Getting hashtag")
+root.title("Instagram Hashtag Loader")
 root.withdraw()
 
 results = []
@@ -151,7 +151,7 @@ for i, word in enumerate(words):
         progressbar["value"] = i + 1
         word_label["text"] = "Current word: " + word
         percentage_label["text"] = "Progress: {}%".format(round((i + 1) / len(words) * 100, 2))
-        posts_count_label["text"] = "Total posts count: " + str(total_posts)
+        posts_count_label["text"] = "Total posts count: " + f'{total_posts:,}'
         root.update()
 
     else:
