@@ -22,6 +22,8 @@ import matplotlib
 import sys
 from matplotlib import font_manager
 import matplotlib.backends.backend_tkagg as tkagg
+import matplotlib.colors as mcolors
+
 
 fonts = [f.name for f in font_manager.fontManager.ttflist]
 available_fonts = ['Meiryo', 'MS Gothic', 'MS Mincho', 'Takao']
@@ -44,7 +46,6 @@ else:
     if continue_program.lower() != 'y':
         sys.exit("プログラムを終了します。")
 
-# 以下、元のプログラムの内容を続ける
 
 
 def human_format(num):
@@ -186,9 +187,15 @@ df_results = df_results.sort_values(by='posts_count', ascending=False)
 sorted_results_path = os.path.join(output_directory, 'sorted_results.csv')
 df_results.to_csv(sorted_results_path, index=False)
 
+# Get the list of Tableau colors
+tableau_colors = list(mcolors.TABLEAU_COLORS)
+
+# Create a list of colors for the bars in the bar chart
+bar_colors = [tableau_colors[i%len(tableau_colors)] for i in range(len(df_results['word']))]
+
 # Plot a bar chart using the 'word' column as the x-axis and the 'posts_count' column as the y-axis
 plt.figure(figsize=(10, 5))  # Set the figure size
-bars = plt.bar(df_results['word'], df_results['posts_count'])
+bars = plt.bar(df_results['word'], df_results['posts_count'], color=bar_colors)
 plt.xlabel('Word')
 plt.ylabel('Posts Count')
 plt.title('Number of posts count for each word')
@@ -202,7 +209,6 @@ ax.get_yaxis().set_major_formatter(plt.FuncFormatter(lambda x, loc: human_format
 for bar in bars:
     yval = bar.get_height()
     ax.text(bar.get_x() + bar.get_width()/2, yval, f'{int(yval):,}', ha='center', va='bottom')
-
 
 plt.tight_layout()  # Adjust the layout to fit the labels
 
@@ -220,10 +226,17 @@ plt.savefig(chart_path)
 def close_window():
     root.destroy()
 
+
+# Get the list of Tableau colors
+tableau_colors = list(mcolors.TABLEAU_COLORS)
+
+# Create a list of colors for the bars in the bar chart
+bar_colors = [tableau_colors[i%len(tableau_colors)] for i in range(len(df_results['word']))]
+
 # matplotlibのFigureとAxesを作成します。
 fig, ax = plt.subplots(figsize=(10, 5))
 
-bars = ax.bar(df_results['word'], df_results['posts_count'])
+bars = ax.bar(df_results['word'], df_results['posts_count'], color=bar_colors)
 ax.set_xlabel('Word')
 ax.set_ylabel('Posts Count')
 ax.set_title('Number of posts count for each word')
@@ -236,7 +249,6 @@ ax.get_yaxis().set_major_formatter(plt.FuncFormatter(lambda x, loc: human_format
 for bar in bars:
     yval = bar.get_height()
     ax.text(bar.get_x() + bar.get_width()/2, yval, f'{int(yval):,}', ha='center', va='bottom')
-
 
 fig.tight_layout()  # Adjust the layout to fit the labels
 
@@ -256,5 +268,4 @@ root.protocol("WM_DELETE_WINDOW", close_window)
 messagebox.showinfo("終了", "作業が完了しました。画面を閉じてください。")
 
 root.mainloop()
-
 
