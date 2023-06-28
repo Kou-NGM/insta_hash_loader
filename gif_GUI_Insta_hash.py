@@ -23,7 +23,7 @@ import sys
 from matplotlib import font_manager
 import matplotlib.backends.backend_tkagg as tkagg
 import matplotlib.colors as mcolors
-from datetime import datetime
+
 
 fonts = [f.name for f in font_manager.fontManager.ttflist]
 available_fonts = ['Meiryo', 'MS Gothic', 'MS Mincho', 'Takao']
@@ -168,12 +168,11 @@ stop_animation()
 time.sleep(2)
 driver.quit()
 
-# ファイル名にタイムスタンプを追加します
-timestamp = datetime.now().strftime('%Y%m%d%H%M%S')
-df.to_csv(os.path.join(output_directory, f'results_{timestamp}.csv'), index=False)
+df = pd.DataFrame(results, columns=['word', 'posts_count'])
+df.to_csv(os.path.join(output_directory, 'results.csv'), index=False)
 
-# Load the results from 'results_{timestamp}.csv' into a new DataFrame
-df_results = pd.read_csv(os.path.join(output_directory, f'results_{timestamp}.csv'))
+# Load the results from 'results.csv' into a new DataFrame
+df_results = pd.read_csv(os.path.join(output_directory, 'results.csv'))
 
 # Drop rows with missing 'posts_count' values
 df_results = df_results.dropna(subset=['posts_count'])
@@ -185,7 +184,7 @@ df_results['posts_count'] = df_results['posts_count'].astype(int)
 df_results = df_results.sort_values(by='posts_count', ascending=False)
 
 # Write the sorted results back to a CSV file
-sorted_results_path = os.path.join(output_directory, f'sorted_results_{timestamp}.csv')
+sorted_results_path = os.path.join(output_directory, 'sorted_results.csv')
 df_results.to_csv(sorted_results_path, index=False)
 
 # Get the list of Tableau colors
@@ -214,7 +213,7 @@ for bar in bars:
 plt.tight_layout()  # Adjust the layout to fit the labels
 
 # Save the bar chart as a PNG file
-chart_path = os.path.join(output_directory, f'bar_chart_{timestamp}.png')
+chart_path = os.path.join(output_directory, 'bar_chart.png')
 plt.savefig(chart_path)
 
 
@@ -269,4 +268,3 @@ root.protocol("WM_DELETE_WINDOW", close_window)
 messagebox.showinfo("終了", "作業が完了しました。画面を閉じてください。")
 
 root.mainloop()
-
