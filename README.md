@@ -18,7 +18,7 @@ This project uses Instagram hashtags to retrieve post counts, saves these result
 
 ファイルを解凍後はコマンドプロンプト(Windows)やターミナル(Mac)を開き`cd`コマンドで解凍したファイルのパスに移動します。
 ```
-cd /*解答したファイルのパス*/
+cd /*解凍したファイルのパス*/
 ```
 
 次にPythonのパッケージマネージャであるpipを使用して、必要なPythonライブラリをインストールする必要があります。以下のコマンドを使用してライブラリをインストールできます。
