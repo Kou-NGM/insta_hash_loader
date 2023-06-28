@@ -23,6 +23,7 @@ import sys
 from matplotlib import font_manager
 import matplotlib.backends.backend_tkagg as tkagg
 import matplotlib.colors as mcolors
+import datetime
 
 
 fonts = [f.name for f in font_manager.fontManager.ttflist]
@@ -168,6 +169,15 @@ stop_animation()
 time.sleep(2)
 driver.quit()
 
+
+def get_timestamp():
+    now = datetime.datetime.now()
+    timestamp = now.strftime('%Y%m%d_%H%M%S')
+    return timestamp
+
+
+
+
 df = pd.DataFrame(results, columns=['word', 'posts_count'])
 df.to_csv(os.path.join(output_directory, 'results.csv'), index=False)
 
@@ -184,8 +194,15 @@ df_results['posts_count'] = df_results['posts_count'].astype(int)
 df_results = df_results.sort_values(by='posts_count', ascending=False)
 
 # Write the sorted results back to a CSV file
-sorted_results_path = os.path.join(output_directory, 'sorted_results.csv')
+timestamp = get_timestamp()
+sorted_results_path = os.path.join(output_directory, f'sorted_results_{timestamp}.csv')
 df_results.to_csv(sorted_results_path, index=False)
+
+...
+
+# Save the bar chart as a PNG file
+chart_path = os.path.join(output_directory, f'bar_chart_{timestamp}.png')
+plt.savefig(chart_path)
 
 # Get the list of Tableau colors
 tableau_colors = list(mcolors.TABLEAU_COLORS)
@@ -213,7 +230,7 @@ for bar in bars:
 plt.tight_layout()  # Adjust the layout to fit the labels
 
 # Save the bar chart as a PNG file
-chart_path = os.path.join(output_directory, 'bar_chart.png')
+chart_path = os.path.join(output_directory, f'bar_chart_{timestamp}.png')
 plt.savefig(chart_path)
 
 
@@ -253,7 +270,7 @@ for bar in bars:
 fig.tight_layout()  # Adjust the layout to fit the labels
 
 # Save the bar chart as a PNG file
-chart_path = os.path.join(output_directory, 'bar_chart.png')
+chart_path = os.path.join(output_directory, f'bar_chart_{timestamp}.png')
 fig.savefig(chart_path)
 
 # tkinterで表示するためのキャンバスを作成し、そのキャンバスにグラフを描画します。
