@@ -99,8 +99,11 @@ gif = tk.PhotoImage(file='gaming.gif')
 gif_label.config(image=gif)
 gif_index = 0
 
+scheduled_event_id = None
+
 def next_frame():
     global gif_index
+    global scheduled_event_id
     try:
         gif.configure(format="gif -index {}".format(gif_index))
         gif_index += 1
@@ -108,13 +111,15 @@ def next_frame():
         gif_index = 0
         return next_frame()
     else:
-        root.after(100, next_frame)
+        scheduled_event_id = root.after(100, next_frame)
 
 def start_animation():
+    global scheduled_event_id
     root.after_idle(next_frame)
 
 def stop_animation():
-    root.after_cancel(next_frame)
+    global scheduled_event_id
+    root.after_cancel(scheduled_event_id)
 
 start_animation()
 
