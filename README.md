@@ -79,6 +79,8 @@ pandasライブラリを使用してデータを処理し、CSVファイルに�
 matplotlibライブラリを使用して、取得したデータをバーチャートで視覚化します。
 注意点として、このプログラムはシステムに日本語フォント（'Meiryo', 'MS Gothic', 'MS Mincho', 'Takao'など）がインストールされていることを前提としています。これらのフォントが見つからない場合、プログラムはユーザーにフォントのインストールを促し、その手順を示します。もしユーザーがインストールを選ばなかった場合、プログラムを終了するかどうか尋ねます。
 
+#⚠️日本語の検索結果に対してresults.csvをExcelで開くと文字化けしてしまう可能性があるのでその場合はresults_jp.csvを開いてください．
+
 
 
 The main features and flow are as follows:
@@ -89,6 +91,8 @@ It uses the tqdm library to display the progress bar on the console.
 It uses the pandas library to process the data and save the results in a CSV file.
 It uses the matplotlib library to visualize the retrieved data with a bar chart.
 Please note that this program assumes that Japanese fonts ('Meiryo', 'MS Gothic', 'MS Mincho', 'Takao', etc.) are installed on your system. If these fonts are not found, the program will prompt the user to install the font and provide instructions on how to do so. If the user chooses not to install, it will ask whether to terminate the program or not.
+
+#⚠️If results.csv is opened in Excel for Japanese search results, there is a possibility that the characters will be garbled, so please open results_jp.csv.
 
 ## コントリビューション（CONTRIBUTION）
 プロジェクトへの貢献は大歓迎です
