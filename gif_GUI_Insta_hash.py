@@ -179,7 +179,12 @@ def get_timestamp():
 
 
 df = pd.DataFrame(results, columns=['word', 'posts_count'])
-df.to_csv(os.path.join(output_directory, 'results.csv'), index=False)
+# CSVファイルを書き込む際にエンコーディングをutf-8に変更
+df.to_csv(os.path.join(output_directory, 'results.csv'), index=False, encoding='utf-8')
+# CSVファイルを書き込む際にエンコーディングをcp932に変更，日本語に特化
+# このエンコーディングは日本語以外の一部の文字をサポートしていないため，データによっては問題が発生する可能性あり
+df.to_csv(os.path.join(output_directory, 'results_jp.csv'), index=False, encoding='cp932')
+
 
 # Load the results from 'results.csv' into a new DataFrame
 df_results = pd.read_csv(os.path.join(output_directory, 'results.csv'))
@@ -196,7 +201,8 @@ df_results = df_results.sort_values(by='posts_count', ascending=False)
 # Write the sorted results back to a CSV file
 timestamp = get_timestamp()
 sorted_results_path = os.path.join(output_directory, f'sorted_results_{timestamp}.csv')
-df_results.to_csv(sorted_results_path, index=False)
+# CSVファイルを書き込む際にエンコーディングをutf-8-sigに変更
+df_results.to_csv(sorted_results_path, index=False, encoding='utf-8-sig')
 
 ...
 
